@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FirebasePractice</string>
+    <string name="channel_description">my channel</string>
+    <string name="channel_name">my fcm</string>
+</resources>
