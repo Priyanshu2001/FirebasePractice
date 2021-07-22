@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.app.job.JobScheduler;
@@ -19,6 +20,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SearchView;
@@ -65,14 +67,24 @@ public class MainActivity2 extends AppCompatActivity {
         application =  (MyApplication) getApplicationContext();
         //binding.searchView.setIconifiedByDefault(false);
         binding.floorCount.setText(floorSize + "");
+        int searchBarId = binding.searchView.getContext().getResources().getIdentifier("android:id/search_bar", null, null);
+        LinearLayout searchBar = (LinearLayout) binding.searchView.findViewById(searchBarId);
+
+        searchBar.setLayoutTransition(new LayoutTransition());
         binding.searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
+                    binding.imageView7.animate().translationXBy(binding.imageView7.getRight());
+                    binding.imageView8.animate().translationXBy(-binding.imageView8.getLeft());
+                   // binding.imageView8.animate().alpha(1.0f);
                     binding.imageView7.setVisibility(View.VISIBLE);
                     binding.imageView8.setVisibility(View.VISIBLE);
                 }
                 else {
+                    binding.imageView7.animate().translationXBy(-binding.imageView7.getRight());
+                    binding.imageView8.animate().translationXBy(binding.imageView8.getLeft());
+                    //binding.imageView8.animate().alpha(0.0f);
                     binding.imageView7.setVisibility(View.GONE);
                     binding.imageView8.setVisibility(View.GONE);
                 }
@@ -105,10 +117,10 @@ public class MainActivity2 extends AppCompatActivity {
         });
        // setupFloorSelector();
         setupRadioFloorSelector();
-        usingRxJava();
-       /* firebaseGetUser();
+        //usingRxJava();
+        firebaseGetUser();
         firebaseGetAppOpens();
-        downloadImage();*/
+        downloadImage();
         application.showLoadingDialog(MainActivity2.this);
 
         binding.button2.setOnClickListener(new View.OnClickListener() {

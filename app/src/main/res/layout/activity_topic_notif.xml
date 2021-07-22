@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TopicNotifActivity">
+
+    <Button
+        android:id="@+id/unSubAdminBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UnSubscribe Admin"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/adminBtn"
+        app:layout_constraintEnd_toEndOf="@+id/adminBtn"
+        app:layout_constraintStart_toStartOf="@+id/adminBtn"
+        app:layout_constraintTop_toTopOf="@+id/adminBtn" />
+
+    <Button
+        android:id="@+id/userBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Users"
+        app:layout_constraintBottom_toTopOf="@+id/adminBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/adminBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/userBtn"
+        app:layout_constraintStart_toStartOf="@+id/userBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/unSubUserBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UnSubscribe User"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/userBtn"
+        app:layout_constraintEnd_toEndOf="@+id/userBtn"
+        app:layout_constraintStart_toStartOf="@+id/userBtn"
+        app:layout_constraintTop_toTopOf="@+id/userBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
